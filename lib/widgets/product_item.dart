@@ -64,18 +64,28 @@ class ProductItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                leading: Image.network(imageUrl!),
-                title: Text(title!,
-                    style:
-                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-                subtitle: Text(description!),
-              ),
-              Text("RP. 500.000",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18),
-                  textAlign: TextAlign.end),
+                  leading: Image.network(imageUrl!),
+                  title: Text(title!,
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                  subtitle: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(description!),
+                      Text(
+                        "in stok",
+                        style: TextStyle(color: Colors.green),
+                      ),
+                      Text(
+                        "\Rp.${price}",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                    ],
+                  )),
               SizedBox(height: 10)
             ],
           ),

@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:faker/faker.dart';
 
 import '../models/product.dart';
 
@@ -9,9 +10,9 @@ class Products with ChangeNotifier {
     (index) {
       return Product(
         id: "id_${index + 1}",
-        title: "Product ${index + 1}",
-        description: 'Ini adalah deskripsi produk ${index + 1}',
-        price: 100 + Random().nextInt(1000).toDouble(),
+        title: "Laptop ${index + 1}",
+        description: 'Laptop',
+        price: 10000 + Random().nextInt(10000).toDouble(),
         imageUrl: 'https://picsum.photos/id/$index/200/300',
       );
     },
