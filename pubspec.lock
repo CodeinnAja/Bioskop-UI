@@ -99,6 +99,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  input_quantity:
+    dependency: "direct main"
+    description:
+      name: input_quantity
+      sha256: "6f66ef6682206a19ca8d226755fda68bb4d6ed7d0f7a7e6ad32e6f359f878c0a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   lints:
     dependency: transitive
     description:
@@ -234,4 +242,4 @@ packages:
     version: "0.1.4-beta"
 sdks:
   dart: ">=3.1.1 <4.0.0"
-  flutter: ">=1.16.0"
+  flutter: ">=1.17.0"

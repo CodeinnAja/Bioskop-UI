@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_uts_7/screens/quantity.dart';
+import 'package:input_quantity/input_quantity.dart';
 import 'package:provider/provider.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 
@@ -19,42 +21,7 @@ class ProductDetailScreen extends StatelessWidget {
           title: Text("${product.title}"),
           backgroundColor: Colors.red,
         ),
-        body:
-            //Column(
-            //   children: [
-            //     Container(
-            //       width: double.infinity,
-            //       height: 250,
-            //       child: Image.network(
-            //         "${product.imageUrl}",
-            //         fit: BoxFit.cover,
-            //       ),
-            //     ),
-            //     SizedBox(height: 30),
-            //     Text(
-            //       "${product.title}",
-            //       style: TextStyle(
-            //         fontSize: 35,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            //       textAlign: TextAlign.left,
-            //     ),
-            //     SizedBox(height: 15),
-            //     Text(
-            //       "\Rp ${product.price}",
-            //       style: TextStyle(
-            //           fontSize: 24, color: Colors.red, fontWeight: FontWeight.bold),
-            //     ),
-            //     SizedBox(height: 15),
-            //     Text(
-            //       "${product.description}",
-            //       style: TextStyle(
-            //         fontSize: 24,
-            //       ),
-            //     ),
-            //   ],
-            // ),
-            ListView(
+        body: ListView(
           children: [
             CarouselSlider(
               items: [
@@ -129,6 +96,75 @@ class ProductDetailScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      "Quantity",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    InputQty(
+                      btnColor1: Colors
+                          .green, //color of the increase and decrease icon
+                      maxVal: double.maxFinite, //max val to go
+                      initVal: 0, //min starting val
+                      onQtyChanged: (val) {
+                        //on value changed we may set the value
+                        //setstate could be called
+                      },
+                    )
+                  ],
+                ),
+              ],
+            )),
+            SizedBox(height: 50),
+            Container(
+              color: Colors.red,
+              padding: EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "Total",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "\ Rp.${product.price}",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Add Cart",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          style: TextButton.styleFrom(
+                              backgroundColor: Color(0xffF18265)))
+                    ],
+                  )
+                ],
+              ),
+            )
           ],
         ));
   }
